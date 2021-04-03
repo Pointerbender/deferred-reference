@@ -1,0 +1,18 @@
+#cargo-features = ["rust-version"]
+
+[package]
+name = "deferred-reference"
+version = "0.1.0"
+authors = ["Pointerbender"]
+#rust-version = "1.51.0"
+edition = "2018"
+license = "MIT"
+
+[features]
+# default = []
+default = ["unstable"]
+unstable = ["slice_ptr_len", "coerce_unsized"]
+slice_ptr_len = []
+coerce_unsized = []
+
+[dependencies]
