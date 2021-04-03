@@ -1,7 +1,7 @@
 #cargo-features = ["rust-version"]
 
 [package]
-name = "deferred-reference"
+name = "deferred_reference"
 version = "0.1.0"
 authors = ["Pointerbender"]
 #rust-version = "1.51.0"
