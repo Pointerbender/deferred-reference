@@ -31,7 +31,7 @@ For using this crate in stable Rust you need to disable the unstable nightly fea
 deferred_reference = { version = "0.1.0", default-features = false }
 ```
 
-Please see the documentation for this crate on how to get started with some concrete code examples.
+Please see the [documentation for this crate](https://docs.rs/deferred_reference) on how to get started with some concrete code examples.
 
 ## `#![no_std]` environments
 This crate is entirely `#![no_std]` and does not depend on the `alloc` crate. No additional `Cargo.toml` features need to be configured
