@@ -7,6 +7,12 @@ authors = ["Pointerbender"]
 #rust-version = "1.51.0"
 edition = "2018"
 license = "MIT"
+description = "A deferred reference is not an actual reference, it is merely a smart pointer tied to the lifetime of the location it points to."
+keywords = ["deferred", "reference", "pointer", "lifetime", "unsafecell"]
+categories = ["concurrency", "data-structures", "memory-management", "no-std", "rust-patterns"]
+homepage = "https://github.com/Pointerbender/deferred_reference#readme"
+repository = "https://github.com/Pointerbender/deferred_reference"
+readme = "README.md"
 
 [features]
 # default = []
