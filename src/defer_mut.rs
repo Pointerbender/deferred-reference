@@ -16,14 +16,17 @@ use super::{Defer, Deferred};
 ///
 /// # Example
 /// ```
-/// #[macro_use] extern crate deferred_reference;
+/// #[macro_use]
+/// extern crate deferred_reference;
 /// use deferred_reference::Deferred;
-/// let mut buffer = [0u8; 1024];
-/// let deferred: Deferred<&mut [u8]> =  unsafe { defer_mut!(buffer) };
-/// assert_eq!(buffer[0], deferred[0]);
-/// // works also for references to arrays:
-/// let deferred: Deferred<&mut [u8; 1024]> =  unsafe { defer_mut!(buffer) };
-/// assert_eq!(buffer[0], deferred[0]);
+/// fn main() {
+///     let mut buffer = [0u8; 1024];
+///     let deferred: Deferred<&mut [u8]> =  unsafe { defer_mut!(buffer) };
+///     assert_eq!(buffer[0], deferred[0]);
+///     // works also for references to arrays:
+///     let deferred: Deferred<&mut [u8; 1024]> =  unsafe { defer_mut!(buffer) };
+///     assert_eq!(buffer[0], deferred[0]);
+/// }
 /// ```
 ///
 /// # Safety
@@ -42,14 +45,17 @@ use super::{Defer, Deferred};
 ///
 /// Here is an example that will trigger undefined behavior, in order to illustrate how unsafe this macro is:
 /// ```no_run
-/// #[macro_use] extern crate deferred_reference;
-/// let mut buffer = [0u8; 1024];
-/// let deferred = unsafe { defer_mut!(buffer) };
-/// buffer[0] = 42; // this implicitly creates a temporary mutable reference to all of `buffer`
-/// // `deferred` is now invalidated !!!
-/// // therefore dereferencing `deferred` is undefined behavior, even though
-/// // the lifetimes of the immutable and mutable references don't overlap:
-/// assert_eq!(buffer[0], deferred[0]); // undefined behavior!!!
+/// #[macro_use]
+/// extern crate deferred_reference;
+/// fn main() {
+///     let mut buffer = [0u8; 1024];
+///     let deferred = unsafe { defer_mut!(buffer) };
+///     buffer[0] = 42; // implicitly creates a temporary mutable reference to all of `buffer`
+///     // `deferred` is now invalidated !!!
+///     // therefore dereferencing `deferred` is undefined behavior, even though
+///     // the lifetimes of the immutable and mutable references don't overlap:
+///     assert_eq!(buffer[0], deferred[0]); // undefined behavior!!!
+/// }
 /// ```
 ///
 /// # Caveat

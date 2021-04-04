@@ -20,7 +20,7 @@ If you're on nightly Rust, add the following dependency to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-deferred_reference = { version = "0.1.0" }
+deferred-reference = { version = "0.1.1" }
 ```
 
 This crate uses some unstable features, but it also works on stable Rust with less features.
@@ -28,10 +28,10 @@ For using this crate in stable Rust you need to disable the unstable nightly fea
 
 ```toml
 [dependencies]
-deferred_reference = { version = "0.1.0", default-features = false }
+deferred-reference = { version = "0.1.1", default-features = false }
 ```
 
-Please see the [documentation for this crate](https://docs.rs/deferred_reference) on how to get started with some concrete code examples.
+Please see the [documentation for this crate](https://docs.rs/deferred-reference) on how to get started with some concrete code examples.
 
 ## `#![no_std]` environments
 This crate is entirely `#![no_std]` and does not depend on the `alloc` crate. No additional `Cargo.toml` features need to be configured

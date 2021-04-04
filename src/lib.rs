@@ -117,6 +117,7 @@
 //!       period of time).
 
 #![no_std]
+#![doc(html_root_url = "https://docs.rs/deferred-reference/0.1.1")]
 // the `slice_ptr_len` feature is needed for deferred references to slices
 #![cfg_attr(feature = "slice_ptr_len", feature(slice_ptr_len))]
 // experimental: the `coerce_unsized` feature is need to unsize the reference
