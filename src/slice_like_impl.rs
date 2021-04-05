@@ -130,16 +130,14 @@ where
     /// }
     /// ```
     #[inline]
-    pub fn get_unchecked<I>(&self, index: I) -> &I::Output
+    pub unsafe fn get_unchecked<I>(&self, index: I) -> &I::Output
     where
         I: SlicePointerIndex<T::Target>,
     {
         // SAFETY: the caller must uphold most of the safety requirements for `get_unchecked`;
         // SAFETY: the slice is dereferencable because `self.as_ptr()` is a safe pointer.
         // SAFETY: the returned pointer is safe because impls of `SlicePointerIndex` have to guarantee that it is.
-        unsafe {
-            &*index.get_unchecked(self.as_ptr())
-        }
+        &*index.get_unchecked(self.as_ptr())
     }
 
     /// Divides one deferred slice into two deferred slices at an index, without doing bounds checking

@@ -175,6 +175,19 @@ mod tests {
 
     use super::*;
 
+    #[test]
+    fn example() {
+        use crate::{Deferred, DeferMut};
+        use core::cell::UnsafeCell;
+        const N: usize = 1024;
+        let buffer = UnsafeCell::new([0usize; N]);
+        // SAFETY: this is safe because there are no references into `buffer` yet
+        let mut deferred1: Deferred<&mut [usize; N]> = unsafe { buffer.defer_mut() };
+        // SAFETY: this is safe because we promise not to create overlap with mutable references
+        let mut deferred2: Deferred<&mut [usize; N]> = unsafe { deferred1.clone_unchecked() };
+        assert_eq!(&mut deferred1[0..10], &mut deferred2[10..20]); // subslices do not overlap
+    }
+
     /// A method to assert that `t` is still being used.
     fn use_it<T: Pointer>(t: T) {
         assert!(!format!("{:p}", t).is_empty());
