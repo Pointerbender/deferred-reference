@@ -20,7 +20,7 @@ If you're on nightly Rust, add the following dependency to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-deferred-reference = { version = "0.1.1" }
+deferred-reference = { version = "0.1.2" }
 ```
 
 This crate uses some unstable features, but it also works on stable Rust with less features.
@@ -28,7 +28,7 @@ For using this crate in stable Rust you need to disable the unstable nightly fea
 
 ```toml
 [dependencies]
-deferred-reference = { version = "0.1.1", default-features = false }
+deferred-reference = { version = "0.1.2", default-features = false }
 ```
 
 Please see the [documentation for this crate](https://docs.rs/deferred-reference) on how to get started with some concrete code examples.
